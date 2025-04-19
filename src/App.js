@@ -148,7 +148,7 @@ function App() {
             )}
 
             <div className="div">
-              <a href="/Resume.pdf" download>
+              <a href={`$process.env.PUBLIC_URL}/Resume.pdf` download>
                 <img className="resume" src={fileicon} alt="resume" />
               </a>
               <h4 className="caption">Resume</h4>

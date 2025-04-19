@@ -148,7 +148,7 @@ function App() {
             )}
 
             <div className="div">
-              <a href="/resume.pdf" download>
+              <a href="/Resume.pdf" download>
                 <img className="resume" src={fileicon} alt="resume" />
               </a>
               <h4 className="caption">Resume</h4>

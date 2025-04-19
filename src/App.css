@@ -1,38 +1,650 @@
-.App {
-  text-align: center;
+.body {
+    background-image: url('/public/windows-background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+.loader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    background-color: black;
+    text-align: center;
+    color: white;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.line {
+    transform: translate(0, 200px);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+#ghost {
+    transform: translate(50%, 240px);
+    position: relative;
+    scale: 0.8;
 }
 
-.App-link {
-  color: #61dafb;
+#red {
+    animation: upNDown infinite 0.5s;
+    position: relative;
+    width: 140px;
+    height: 140px;
+    display: grid;
+    grid-template-columns: repeat(14, 1fr);
+    grid-template-rows: repeat(14, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    grid-template-areas:
+        "a1  a2  a3  a4  a5  top0  top0  top0  top0  a10 a11 a12 a13 a14"
+        "b1  b2  b3  top1 top1 top1 top1 top1 top1 top1 top1 b12 b13 b14"
+        "c1 c2 top2 top2 top2 top2 top2 top2 top2 top2 top2 top2 c13 c14"
+        "d1 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 d14"
+        "e1 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 e14"
+        "f1 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 f14"
+        "top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4"
+        "top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4"
+        "top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4"
+        "top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4"
+        "top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4"
+        "top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4"
+        "st0 st0 an4 st1 an7 st2 an10 an10 st3 an13 st4 an16 st5 st5"
+        "an1 an2 an3 an5 an6 an8 an9 an9 an11 an12 an14 an15 an17 an18";
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@keyframes upNDown {
+
+    0%,
+    49% {
+        transform: translateY(0px);
+    }
+
+    50%,
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+#top0,
+#top1,
+#top2,
+#top3,
+#top4,
+#st0,
+#st1,
+#st2,
+#st3,
+#st4,
+#st5 {
+    background-color: red;
+}
+
+#top0 {
+    grid-area: top0;
+}
+
+#top1 {
+    grid-area: top1;
+}
+
+#top2 {
+    grid-area: top2;
+}
+
+#top3 {
+    grid-area: top3;
+}
+
+#top4 {
+    grid-area: top4;
+}
+
+#st0 {
+    grid-area: st0;
+}
+
+#st1 {
+    grid-area: st1;
+}
+
+#st2 {
+    grid-area: st2;
+}
+
+#st3 {
+    grid-area: st3;
+}
+
+#st4 {
+    grid-area: st4;
+}
+
+#st5 {
+    grid-area: st5;
+}
+
+#an1 {
+    grid-area: an1;
+    animation: flicker0 infinite 0.5s;
+}
+
+#an18 {
+    grid-area: an18;
+    animation: flicker0 infinite 0.5s;
+}
+
+#an2 {
+    grid-area: an2;
+    animation: flicker1 infinite 0.5s;
+}
+
+#an17 {
+    grid-area: an17;
+    animation: flicker1 infinite 0.5s;
+}
+
+#an3 {
+    grid-area: an3;
+    animation: flicker1 infinite 0.5s;
+}
+
+#an16 {
+    grid-area: an16;
+    animation: flicker1 infinite 0.5s;
+}
+
+#an4 {
+    grid-area: an4;
+    animation: flicker1 infinite 0.5s;
+}
+
+#an15 {
+    grid-area: an15;
+    animation: flicker1 infinite 0.5s;
+}
+
+#an6 {
+    grid-area: an6;
+    animation: flicker0 infinite 0.5s;
+}
+
+#an12 {
+    grid-area: an12;
+    animation: flicker0 infinite 0.5s;
+}
+
+#an7 {
+    grid-area: an7;
+    animation: flicker0 infinite 0.5s;
+}
+
+#an13 {
+    grid-area: an13;
+    animation: flicker0 infinite 0.5s;
+}
+
+#an9 {
+    grid-area: an9;
+    animation: flicker1 infinite 0.5s;
+}
+
+#an10 {
+    grid-area: an10;
+    animation: flicker1 infinite 0.5s;
+}
+
+#an8 {
+    grid-area: an8;
+    animation: flicker0 infinite 0.5s;
+}
+
+#an11 {
+    grid-area: an11;
+    animation: flicker0 infinite 0.5s;
+}
+
+@keyframes flicker0 {
+
+    0%,
+    49% {
+        background-color: red;
+    }
+
+    50%,
+    100% {
+        background-color: transparent;
+    }
+}
+
+@keyframes flicker1 {
+
+    0%,
+    49% {
+        background-color: transparent;
+    }
+
+    50%,
+    100% {
+        background-color: red;
+    }
+}
+
+#eye {
+    width: 40px;
+    height: 50px;
+    position: absolute;
+    top: 30px;
+    left: 10px;
+}
+
+#eye::before {
+    content: "";
+    background-color: white;
+    width: 20px;
+    height: 50px;
+    transform: translateX(10px);
+    display: block;
+    position: absolute;
+}
+
+#eye::after {
+    content: "";
+    background-color: white;
+    width: 40px;
+    height: 30px;
+    transform: translateY(10px);
+    display: block;
+    position: absolute;
+}
+
+#eye1 {
+    width: 40px;
+    height: 50px;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+}
+
+#eye1::before {
+    content: "";
+    background-color: white;
+    width: 20px;
+    height: 50px;
+    transform: translateX(10px);
+    display: block;
+    position: absolute;
+}
+
+#eye1::after {
+    content: "";
+    background-color: white;
+    width: 40px;
+    height: 30px;
+    transform: translateY(10px);
+    display: block;
+    position: absolute;
+}
+
+#pupil {
+    width: 20px;
+    height: 20px;
+    background-color: blue;
+    position: absolute;
+    top: 50px;
+    left: 10px;
+    z-index: 1;
+    animation: eyesMovement infinite 3s;
+}
+
+#pupil1 {
+    width: 20px;
+    height: 20px;
+    background-color: blue;
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    z-index: 1;
+    animation: eyesMovement infinite 3s;
+}
+
+@keyframes eyesMovement {
+
+    0%,
+    49% {
+        transform: translateX(0px);
+    }
+
+    50%,
+    99% {
+        transform: translateX(10px);
+    }
+
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+#shadow {
+    background-color: black;
+    width: 140px;
+    height: 140px;
+    position: absolute;
+    border-radius: 50%;
+    transform: rotateX(80deg);
+    filter: blur(20px);
+    top: 80%;
+    animation: shadowMovement infinite 0.5s;
+}
+
+@keyframes shadowMovement {
+
+    0%,
+    49% {
+        opacity: 0.5;
+    }
+
+    50%,
+    100% {
+        opacity: 0.2;
+    }
+}
+
+
+.lds-ellipsis {
+    transform: translate(0, 240px);
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.lds-ellipsis div {
+    position: absolute;
+    top: 33px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: #fff;
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+
+.lds-ellipsis div:nth-child(1) {
+    left: 8px;
+    animation: lds-ellipsis1 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(2) {
+    left: 8px;
+    animation: lds-ellipsis2 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(3) {
+    left: 32px;
+    animation: lds-ellipsis2 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(4) {
+    left: 56px;
+    animation: lds-ellipsis3 0.6s infinite;
+}
+
+@keyframes lds-ellipsis1 {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes lds-ellipsis3 {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(0);
+    }
+}
+
+@keyframes lds-ellipsis2 {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(24px, 0);
+    }
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 50px;
+    align-items: left;
+    justify-content: left;
+    margin: 0;
+}
+
+.caption1 {
+    text-align: center;
+    transform: translate(0, -30px);
+}
+
+.caption2 {
+    text-align: center;
+    transform: translate(0, -20px);
+}
+
+.caption {
+    text-align: center;
+        transform: translate(0, -30px);
+        margin-left: 20px;
+}
+
+.div {
+    height: 70px;
+    width: fit-content;
+            transform: translate(0, -20px);
+            margin-bottom: 20px;
+
+
+}
+
+
+.comp {
+    height: 100px;
+    object-fit: fill;
+}
+
+.recycle{
+    margin-left: 10px;
+    height: 60px;
+    margin-top: 25px;
+}
+
+.email {
+    margin-left: 20px;
+    height: 50px;
+    transform: translate(0, -20px);
+}
+
+.whatsapp {
+    height: 50px;
+    margin-left: 20px;
+    transform: translate(0, -20px);
+}
+
+.github {
+    margin-left: 20px;
+    height: 60px;
+    margin-bottom: 5px;
+    transform: translate(0, -20px);
+}
+
+.cat {
+    height: 60px;
+    transform: translate(0, -20px);
+    margin-left: 7px;
+}
+
+.resume {
+    height: 60px;
+    margin-left: 20px;
+        transform: translate(0, -20px);
+}
+
+.frog {
+    height: 60px;
+        transform: translate(0, -20px);
+        margin-left: 7px;
+}
+
+.linkedin {
+    height: 60px;
+        transform: translate(0, -20px);
+        margin-left: 20px;
+}
+
+.taskbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: #c0c0c0;
+    border-top: 2px solid #808080;
+    padding: 0 5px;
+    font-family: Arial, sans-serif;
+}
+
+.start-button {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: #008080;
+    color: white;
+    border: 2px solid #000;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.start-button img {
+    width: 16px;
+    height: 16px;
+}
+
+.task-area {
+    flex: 1;
+    display: flex;
+    gap: 5px;
+    padding: 0 10px;
+}
+
+.task {
+    background: white;
+    border: 2px solid #808080;
+    padding: 5px;
+}
+
+.system-tray {
+    padding: 5px;
+    background: #808080;
+    color: white;
+}
+
+.clock {
+    font-weight: bold;
+}
+
+
+
+
+.thumbnail {
+    cursor: pointer;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.thumbnail:hover {
+    transform: scale(1.05);
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.window {
+    position: relative;
+    background: white;
+    border: 2px solid #888;
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 400px;
+    max-height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #e0e0e0;
+    padding: 8px 12px;
+    font-weight: bold;
+    border-bottom: 2px solid #888;
+}
+
+.header button {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.header button:hover {
+    color: red;
+}
+
+.full-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: black;
+}
+
+#Quotify {
+    font-size: 50px;
+    transform: translate(0, -20px);
+    margin-left: 20px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+#avatar {
+    font-size: 50px;
+    transform: translate(20px, -20px);
+    margin-left: 15px;
+    text-decoration: none;
+    color: black;
 }
